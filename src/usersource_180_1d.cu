@@ -136,12 +136,13 @@ AA=500.0;//*(n1+1)*(n2+1);
 //AA=0.0356825*(n1+1)*(n2+1);
 //AA=2000;// ! 2 km/sec
 s_period=180.e0;
+//s_period=30.0;
 //yp=(p->xmin[1])+(((real)j)*(p->dx[1]));
 //zp=(p->xmin[2])+(((real)k)*(p->dx[2]));
 
 exp_z=exp(-r1/(delta_z*delta_z));
 //exp_xyz=sin(PI*yp*(n1+1)/xxmax)*sin(PI*zp*(n2+1)/yymax)*exp_z;
-exp_xyz=1.0;
+exp_xyz=exp_z;
 
 tdep=sin(qt*2.0*PI/s_period);
 vvz=AA*exp_xyz*tdep;

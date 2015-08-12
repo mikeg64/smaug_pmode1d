@@ -59,6 +59,7 @@ char configfile[300];
 char *cfgfile="configs/1D_128_spic_asc.ini";
 //char *cfgfile="zero1_BW_bin.ini";
 char *cfgout="/fastdata/cs1mkg/smaug1d/spic_180_1d/zerospic1_";
+//char *cfgout="/fastdata/cs1mkg/smaug1d/spic_30_1d/zerospic1_";
 
 
 struct params *d_p;
@@ -71,8 +72,8 @@ struct state *state=(struct state *)malloc(sizeof(struct state));
 
 //dt=0.15;
 //dt=0.000000493;  //BW tests
-dt=0.001;
-nt=150000;
+dt=0.0002;
+nt=900000;
 
 real *t=(real *)calloc(nt,sizeof(real));
 for(i=0;i<nt;i++)
@@ -103,7 +104,7 @@ p->divbon=0.0;
 p->divbfix=0.0;
 p->hyperdifmom=1.0;
 p->readini=1.0;
-p->cfgsavefrequency=1000;
+p->cfgsavefrequency=5000;
 
 p->xmax[0]=xmax;
 p->xmax[1]=ymax;
