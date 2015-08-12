@@ -2,9 +2,9 @@
 #$ -j y
 #$ -l arch=intel*
 #$ -l gpu=1
-##$ -l gpu_arch=nvidia-m2070
-#$ -l gpu=1,gpu_arch=nvidia-k40m
-#$ -P gpu
+#$ -l gpu_arch=nvidia-m2070
+##$ -l gpu=1,gpu_arch=nvidia-k40m
+#$ -P mhd
 #$ -N p180_1d
 #$ -l mem=12G
 #$ -l rmem=12G
@@ -22,6 +22,7 @@ cd ..
 cd src
 cp usersource_180_1d.cu usersource.cu
 cp boundary_p_1d.cu boundary.cu
+cp init_user_p_1d.cu init_user.cu
 
 
 make clean
@@ -32,6 +33,6 @@ cd ..
 
 export TIMECOUNTER=0
 source timeused
-./smaug a
+./smaug a init
 source timeused
 

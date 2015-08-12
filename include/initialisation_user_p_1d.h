@@ -383,7 +383,7 @@ int nh;
 	real ggg=-274.0;
        real mu=4.0*PI/1.0e7;
        real mut=1.2;  //maybe mut = 0.6?
-	real bzero=1.0e0;// bfield in tesla
+	real bzero=0.0e0;// bfield in tesla
 	real bscale=0.5e6;
 	real zr=0.5e6;
 
@@ -400,7 +400,11 @@ int nh;
           n2=p->n[1];///(p->pnpe[1]);
           ii[0]=n1/2;
           ii[1]=n2/2;
-	  ii[2]=0;
+
+	  #ifdef USE_SAC_3D
+	  	ii[2]=0;
+	  #endif
+          k=0;
 
           real *T, *lambda, *presval;
           real **pres,**prese,**dbzdx,**dbxdx,**dbzdz,**dbxdz,**bsq,**dbsq,**dpdz;
@@ -423,13 +427,14 @@ int nh;
 
           //read the atmosphere file
           //FILE *fatmos=fopen("/data/cs1mkg/smaug_spicule1/atmosphere/VALMc_rho_8184.dat","r");
-          FILE *fatmos=fopen("/data/cs1mkg/smaugutils/atmosphere/VALMc_rho_1020_test.dat","r");
+          //FILE *fatmos=fopen("atmosphere/VALMc_rho_1020_test.dat","r");
+          FILE *fatmos=fopen("atmosphere/VALMc_rho_132_test_sac_all.dat","r");
 
-h=atof(st1);
-rho0=atof(st3);
-TT0=atof(st2);
-p0=atof(st4);
-printf("vars %g %g %g\n",h,TT0,rho0);
+//h=atof(st1);
+//rho0=atof(st3);
+//TT0=atof(st2);
+//p0=atof(st4);
+//printf("vars %g %g %g\n",h,TT0,rho0);
 
 
 #ifdef USE_MULTIGPU
@@ -453,7 +458,7 @@ printf("vars %g %g %g\n",h,TT0,rho0);
 
           for(i=0; i<((n1)); i++)
           {
-            ii[0]=i;
+            ii[0]=n1-1-i;//starting at top of solar atmosphere
             //fscanf(fatmos, "%g %g", &h, &rho0);
             fscanf(fatmos, " %s %s %s %s %n", st1, st2, st3, st4,&ntt);
 		h=atof(st1);
@@ -461,7 +466,7 @@ printf("vars %g %g %g\n",h,TT0,rho0);
                 TT0=atof(st2);
                 T[i]=TT0;
                 presval[i]=atof(st4);
-                
+                printf("vars %g %g %g\n",h,TT0,rho0);
 //if(p->ipe==1)
 //       printf("%d %g %g \n",i, h,rho0);
 		 for(j=0; j<n2; j++)
@@ -470,8 +475,10 @@ printf("vars %g %g %g\n",h,TT0,rho0);
                 #endif
                  {
                      ii[1]=j;
-                     ii[2]=k;
-                     w[encode3_uin(p,ii[0],ii[1],ii[2],rhob)]=rho0;
+			#ifdef USE_SAC_3D
+                     		ii[2]=k;
+                	#endif
+                     w[encode3_uin(p,ii[0],ii[1],k,rhob)]=rho0;
                  }
           }
 
@@ -533,8 +540,11 @@ printf("compute energy and bfields to background\n");
                 w[encode3_uin(p,i,j,ii[2],energyb)]=((prese[i][j])/(gamma-1));
 		w[encode3_uin(p,i,j,ii[2],energy)]=0.0;
 
-		w[encode3_uin(p,i,j,ii[2],b1b)]=w[encode3_uin(p,i,j,ii[2],b1)];
-		w[encode3_uin(p,i,j,ii[2],b2b)]=w[encode3_uin(p,i,j,ii[2],b2)];
+		//w[encode3_uin(p,i,j,ii[2],b1b)]=w[encode3_uin(p,i,j,ii[2],b1)];
+		//w[encode3_uin(p,i,j,ii[2],b2b)]=w[encode3_uin(p,i,j,ii[2],b2)];
+		w[encode3_uin(p,i,j,ii[2],b1b)]=0.0;
+		w[encode3_uin(p,i,j,ii[2],b2b)]=0.0;
+
 		w[encode3_uin(p,i,j,ii[2],b1)]=0.0;
 		w[encode3_uin(p,i,j,ii[2],b2)]=0.0;
 	   }

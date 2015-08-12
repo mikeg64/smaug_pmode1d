@@ -12,7 +12,7 @@ int ngk=2;
 // Define the x domain
 #ifdef USE_SAC
 int ni;
-ni=796; //BW tests
+ni=128; //BW tests
 ni=ni+2*ngi;
 //ni=512;
 
@@ -30,7 +30,7 @@ int nj=2;  //BW test
 nj=nj+2*ngj;
 
 
-real ymax = 4.0e6;
+real ymax = 189453.1e0;
 real ymin=1953.10;
 //real dy = (ymax-ymin)/(nj); 
 real dy = (ymax-ymin)/(128);
@@ -56,9 +56,9 @@ int steeringenabled=1;
 int finishsteering=0;
 char configfile[300];
 //char *cfgfile="zero1.ini";
-char *cfgfile="configs/zero1_BW_asc.ini";
+char *cfgfile="configs/1D_128_spic_asc.ini";
 //char *cfgfile="zero1_BW_bin.ini";
-char *cfgout="out/zeroOT";
+char *cfgout="/fastdata/cs1mkg/smaug1d/spic_180_1d/zerospic1_";
 
 
 struct params *d_p;
@@ -70,7 +70,8 @@ struct state *state=(struct state *)malloc(sizeof(struct state));
 
 
 //dt=0.15;
-dt=0.000000493;  //BW tests
+//dt=0.000000493;  //BW tests
+dt=0.001;
 nt=150000;
 
 real *t=(real *)calloc(nt,sizeof(real));
@@ -102,7 +103,7 @@ p->divbon=0.0;
 p->divbfix=0.0;
 p->hyperdifmom=1.0;
 p->readini=1.0;
-p->cfgsavefrequency=100;
+p->cfgsavefrequency=1000;
 
 p->xmax[0]=xmax;
 p->xmax[1]=ymax;
