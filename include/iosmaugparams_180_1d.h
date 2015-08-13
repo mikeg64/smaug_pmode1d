@@ -73,7 +73,7 @@ struct state *state=(struct state *)malloc(sizeof(struct state));
 //dt=0.15;
 //dt=0.000000493;  //BW tests
 dt=0.0002;
-nt=900000;
+nt=9000000;
 
 real *t=(real *)calloc(nt,sizeof(real));
 for(i=0;i<nt;i++)

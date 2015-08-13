@@ -58,7 +58,7 @@ char configfile[300];
 //char *cfgfile="zero1.ini";
 char *cfgfile="configs/1D_128_spic_asc.ini";
 //char *cfgfile="zero1_BW_bin.ini";
-char *cfgout="/fastdata/cs1mkg/smaug1d/spic_30_1d/zerospic1_";
+char *cfgout="/fastdata/cs1mkg/smaug1d/spic_300_1d/zerospic1_";
 //char *cfgout="/fastdata/cs1mkg/smaug1d/spic_30_1d/zerospic1_";
 
 
