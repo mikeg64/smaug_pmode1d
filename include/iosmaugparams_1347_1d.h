@@ -58,7 +58,7 @@ char configfile[300];
 //char *cfgfile="zero1.ini";
 char *cfgfile="configs/1D_128_spic_asc.ini";
 //char *cfgfile="zero1_BW_bin.ini";
-char *cfgout="/fastdata/cs1mkg/smaug1d/spic_300_1d/zerospic1_";
+char *cfgout="/fastdata/cs1mkg/smaug1d/spic_1347_1d/zerospic1_";
 //char *cfgout="/fastdata/cs1mkg/smaug1d/spic_30_1d/zerospic1_";
 
 
@@ -73,7 +73,7 @@ struct state *state=(struct state *)malloc(sizeof(struct state));
 //dt=0.15;
 //dt=0.000000493;  //BW tests
 dt=0.0002;
-nt=36000000;
+nt=60000000;
 
 real *t=(real *)calloc(nt,sizeof(real));
 for(i=0;i<nt;i++)
