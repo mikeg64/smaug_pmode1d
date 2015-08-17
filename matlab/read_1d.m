@@ -1,11 +1,11 @@
 
-directory='/fastdata/cs1mkg/smaug1d/spic_952_1d/';
+directory='/fastdata/cs1mkg/smaug1d/spic_30_1d/';
 extension='.out';
 
 
-ndirectory='/fastdata/cs1mkg/smaug1d/spic_952_1d/images_3d_vsecs';
+ndirectory='/fastdata/cs1mkg/smaug1d/spic_30_1d/images_3d_vsecs';
 nextension='.jpg';
-nt=8681;
+nt=1799;
 nsz=128;
 
 wvz=zeros(nt,nsz);
@@ -13,7 +13,7 @@ eflux=zeros(nt,nsz);
 for i=1:1:nt
 %for i=1519:2632
 %for i=2631:2632
-i
+
     
 
 id=int2str(5000*i);
@@ -129,11 +129,11 @@ clear tmp;
   
 end 
   
-save('p952_eflux_vz_1d.mat','wvz','eflux');
+save('p30_eflux_vz_1d.mat','wvz','eflux');
 
-ef1Mm=sum(eflux(:,20))/8489;
-ef2Mm=sum(eflux(:,42))/8489;
-ef2p9Mmsum(eflux(:,64))/8489;
-ef4Mm=sum(eflux(:,90))/8489;
-ef5p5Mm=sum(eflux(:,117))/8489;
+ef1Mm=sum(eflux(:,20))/nt;
+ef2Mm=sum(eflux(:,42))/nt;
+ef2p9Mm=sum(eflux(:,64))/nt;
+ef4Mm=sum(eflux(:,90))/nt;
+ef5p5Mm=sum(eflux(:,117))/nt;
 

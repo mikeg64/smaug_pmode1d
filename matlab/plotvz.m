@@ -1,7 +1,8 @@
 %save('p30_vz_1d.mat');
-
-pdat=eflux;
-%pdat=wvz;
+ntm=size(eflux);
+nt=ntm(1);
+%pdat=eflux;
+pdat=wvz;
 
   max1=max(pdat);
   max2=max(max1);
@@ -29,4 +30,8 @@ hc=colorbar();
 %   colormap(divmap);
  
   
-  
+  ef1Mm=sum(eflux(:,20))/nt;
+ef2Mm=sum(eflux(:,42))/nt;
+ef2p9Mm=sum(eflux(:,64))/nt;
+ef4Mm=sum(eflux(:,90))/nt;
+ef5p5Mm=sum(eflux(:,117))/nt;
