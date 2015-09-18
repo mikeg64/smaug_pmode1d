@@ -56,9 +56,9 @@ int steeringenabled=1;
 int finishsteering=0;
 char configfile[300];
 //char *cfgfile="zero1.ini";
-char *cfgfile="configs/1D_128_spic_asc.ini";
+char *cfgfile="configs/1D_iso_128_spic_asc.ini";
 //char *cfgfile="zero1_BW_bin.ini";
-char *cfgout="/fastdata/cs1mkg/smaug1d_valiiic_nograv/spic_635_1d/zerospic1_";
+char *cfgout="/fastdata/cs1mkg/smaug1d_iso_grav/spic_635_1d/zerospic1_";
 //char *cfgout="/fastdata/cs1mkg/smaug1d/spic_30_1d/zerospic1_";
 
 
@@ -73,7 +73,7 @@ struct state *state=(struct state *)malloc(sizeof(struct state));
 //dt=0.15;
 //dt=0.000000493;  //BW tests
 dt=0.0002;
-nt=60000000;
+nt=6000000;
 
 real *t=(real *)calloc(nt,sizeof(real));
 for(i=0;i<nt;i++)
@@ -93,8 +93,8 @@ p->dx[1]=dy;
 p->gamma=1.66666667;  //OZ test
 p->mu=1.0;
 p->eta=0.0;
-//p->g[0]=-274.0;
-p->g[0]=0.0;
+p->g[0]=-274.0;
+//p->g[0]=0.0;
 p->g[1]=0.0;
 p->g[2]=0.0;
 p->cmax=0.02;
