@@ -1,5 +1,6 @@
 %save('p30_vz_1d.mat');
-ntm=size(eflux);
+%ntm=size(eflux);
+ntm=size(wvz);
 nt=ntm(1);
 %pdat=eflux;
 pdat=wvz;
