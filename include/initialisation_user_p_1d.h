@@ -428,7 +428,8 @@ int nh;
           //read the atmosphere file
           //FILE *fatmos=fopen("/data/cs1mkg/smaug_spicule1/atmosphere/VALMc_rho_8184.dat","r");
           //FILE *fatmos=fopen("atmosphere/VALMc_rho_1020_test.dat","r");
-          FILE *fatmos=fopen("atmosphere/VALMc_rho_132_test_sac_all.dat","r");
+          //FILE *fatmos=fopen("atmosphere/VALMc_rho_132_test_sac_all.dat","r");
+	  FILE *fatmos=fopen("atmosphere/rho_132_test_sac_all.dat","r");
 
 //h=atof(st1);
 //rho0=atof(st3);

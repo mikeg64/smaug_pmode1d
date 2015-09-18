@@ -33,6 +33,6 @@ cd ..
 
 export TIMECOUNTER=0
 source timeused
-./smaug a
+./smaug a init
 source timeused
 
