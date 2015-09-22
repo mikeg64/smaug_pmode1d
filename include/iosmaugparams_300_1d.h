@@ -58,7 +58,7 @@ char configfile[300];
 //char *cfgfile="zero1.ini";
 char *cfgfile="configs/1D_iso_128_spic_asc.ini";
 //char *cfgfile="zero1_BW_bin.ini";
-char *cfgout="/fastdata/cs1mkg/smaug1d_iso_grav/spic_300_1d/zerospic1_";
+char *cfgout="/fastdata/cs1mkg/smaug1d_iso_nograv/spic_300_1d/zerospic1_";
 //char *cfgout="/fastdata/cs1mkg/smaug1d/spic_30_1d/zerospic1_";
 
 
@@ -93,8 +93,8 @@ p->dx[1]=dy;
 p->gamma=1.66666667;  //OZ test
 p->mu=1.0;
 p->eta=0.0;
-p->g[0]=-274.0;
-//p->g[0]=0.0;
+//p->g[0]=-274.0;
+p->g[0]=0.0;
 p->g[1]=0.0;
 p->g[2]=0.0;
 p->cmax=0.02;

@@ -3,7 +3,7 @@
 ntm=size(wvz);
 nt=ntm(1);
 %pdat=eflux;
-pdat=wvz;
+ pdat=wvz;
 
   max1=max(pdat);
   max2=max(max1);

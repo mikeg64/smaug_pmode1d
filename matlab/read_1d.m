@@ -1,11 +1,11 @@
 
-directory='/fastdata/cs1mkg/smaug1d_valiiic_nograv/spic_635_1d/';
+directory='/fastdata/cs1mkg/smaug1d_iso_grav/spic_635_1d/';
 extension='.out';
 
 
-ndirectory='/fastdata/cs1mkg/smaug1d_valiiic_nograv/spic_635_1d/images_3d_vsecs';
+ndirectory='/fastdata/cs1mkg/smaug1d_iso_grav/spic_650_1d/images_3d_vsecs';
 nextension='.jpg';
-nt=5401;
+nt=1199;
 nsz=128;
 
 wvz=zeros(nt,nsz);
@@ -129,7 +129,7 @@ clear tmp;
   
 end 
   
-save('valiiic_nograv/p635_eflux_vz_1d.mat','wvz','eflux');
+save('iso_grav/p635_eflux_vz_1d.mat','wvz','eflux');
 
 ef1Mm=sum(eflux(:,20))/nt;
 ef2Mm=sum(eflux(:,42))/nt;
